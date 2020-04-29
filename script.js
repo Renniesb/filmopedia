@@ -11,14 +11,15 @@ function formatQueryParams(params) {
 }
 
 function displayOMDBData(movie) {
-  let html = '';
-
-    html = html + `<h2>Movie Name: ${movie.Title}</h5><p>Plot: ${movie.Plot}</p>
-    <p>Year: ${movie.Year}</p>\n`;
-  
+    let html = '';
+    if(movie.Error){
+        html = `<p>${movie.Error} Type in a different movie name</p>`
+    } else {
+        html = `<h2>Movie Name: ${movie.Title}</h5><p>Plot: ${movie.Plot}</p>
+        <p>Year: ${movie.Year}</p>\n`;
+    }
 
   $('#results').html(html);
-
 
 }
 
@@ -32,7 +33,7 @@ function getMovieData(query) {
       if (response.ok) {
         return response.json();
       }
-      throw new Error(response.statusText);
+      throw new Error(response.error);
     })
     .then(responseJson => {
       console.log(JSON.stringify(responseJson))
