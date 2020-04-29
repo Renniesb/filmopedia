@@ -1,7 +1,10 @@
 'use strict';
 
 
+
+const apiKey = 'AIzaSyAQd_NjHatlqWnGl1iwxQPhiUAe_euaccs';
 const OMDBsearchURL = 'http://www.omdbapi.com/?apikey=2a2afcb2&t=';
+const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 
 
 function formatQueryParams(params) {
@@ -10,13 +13,22 @@ function formatQueryParams(params) {
   return queryItems.join('&');
 }
 
-function displayOMDBData(movie) {
+function displayMovieData(movie,trailers) {
     let html = '';
     if(movie.Error){
         html = `<p>${movie.Error} Type in a different movie name</p>`
     } else {
-        html = `<h2>Movie Name: ${movie.Title}</h5><p>Plot: ${movie.Plot}</p>
-        <p>Year: ${movie.Year}</p>\n`;
+        html = `<h3>Movie Name: ${movie.Title}</h5><p>Plot: ${movie.Plot}</h3>
+        <p>Year: ${movie.Year}</p>\n
+        <h5>Trailers</h5>
+        <hr>
+        `;
+        console.log(trailers);
+        trailers.items.forEach( trailer =>{
+            html = html + `<h5>${trailer.snippet.title}</h5><iframe width="200" height="200" src="https://www.youtube.com/embed/${trailer.id.videoId}"></iframe>`
+        }
+            
+        )
     }
 
   $('#results').html(html);
@@ -26,9 +38,19 @@ function displayOMDBData(movie) {
 
 function getMovieData(query) {
 
-  const url = OMDBsearchURL + query;
+  const params = {
+    key: apiKey,
+    q: query + ' movie trailer',
+    part: 'snippet',
+    maxResults: 2,
+    type: 'video'
+  };
+  let queryString = formatQueryParams(params)
+  let OMDBurl = OMDBsearchURL + query;
+  let YoutubeSearchUrl = searchURL + '?' + queryString;
+  let movie = ''
 
-  fetch(url)
+  fetch(OMDBurl)
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -37,8 +59,11 @@ function getMovieData(query) {
     })
     .then(responseJson => {
       console.log(JSON.stringify(responseJson))
-      displayOMDBData(responseJson);
+      movie = responseJson;
+      return fetch(YoutubeSearchUrl);      
     })
+    .then(data=> data.json())
+    .then(trailers=>displayMovieData(movie,trailers) )
     .catch(err => {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
