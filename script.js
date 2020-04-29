@@ -3,7 +3,7 @@
 
 
 const apiKey = 'AIzaSyAQd_NjHatlqWnGl1iwxQPhiUAe_euaccs';
-const OMDBsearchURL = 'http://www.omdbapi.com/?apikey=2a2afcb2&t=';
+const OMDBsearchURL = 'https://www.omdbapi.com/?apikey=2a2afcb2&t=';
 const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 
 
