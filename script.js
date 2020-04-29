@@ -45,9 +45,9 @@ function getMovieData(query) {
     maxResults: 2,
     type: 'video'
   };
-  let queryString = formatQueryParams(params)
+  let queryString = '';
   let OMDBurl = OMDBsearchURL + query;
-  let YoutubeSearchUrl = searchURL + '?' + queryString;
+  let YoutubeSearchUrl = "";
   let movie = ''
 
   fetch(OMDBurl)
@@ -60,6 +60,9 @@ function getMovieData(query) {
     .then(responseJson => {
       console.log(JSON.stringify(responseJson))
       movie = responseJson;
+      params.q = params.q + ` ${movie.Year}`;
+      queryString = formatQueryParams(params);
+      YoutubeSearchUrl = searchURL + '?' + queryString;
       return fetch(YoutubeSearchUrl);      
     })
     .then(data=> data.json())
