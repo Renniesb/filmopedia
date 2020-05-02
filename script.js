@@ -77,7 +77,6 @@ function getMovieData(query) {
       throw new Error(response.error);
     })
     .then(responseJson => {
-      console.log(JSON.stringify(responseJson))
       movie = responseJson;
       params.q = params.q + ` ${movie.Year}`;
       queryString = formatQueryParams(params);
