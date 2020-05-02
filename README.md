@@ -4,10 +4,10 @@ Link to my Live app: https://renniesb.github.io/filmopedia/
 
 # Screenshots
 
-![](https://photos.app.goo.gl/9ynu6GvjLaiYaSc58)
-![](https://photos.app.goo.gl/4nYoQ5dpVg53JQoc7)
-![](https://photos.app.goo.gl/dQaVeV1ju3PrNtjy8)
-![](https://photos.app.goo.gl/aWDRgTEJWLx4qwZ2A)
+![1](https://photos.app.goo.gl/9ynu6GvjLaiYaSc58)
+![2](https://photos.app.goo.gl/4nYoQ5dpVg53JQoc7)
+![3](https://photos.app.goo.gl/dQaVeV1ju3PrNtjy8)
+![4](https://photos.app.goo.gl/aWDRgTEJWLx4qwZ2A)
 
 
 
