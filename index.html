@@ -1,25 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Filmopedia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&family=Marcellus+SC&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="img/favicon.ico" type="image/gif" sizes="16x16">
   </head>
   <body>
     <div class="container">
-        <h1>FilmoPedia</h1>
+        <header>
+            <div class="logo">
+                <img height="150" width="180" src="img/filmopedia.png" alt="filmopedia logo">
+                <h1 class="title">FilmoPedia</h1>
+            </div>
+            
+            <div class="searchbar">
+                <form id="js-form">
+                    <label>Movie facts at the click of a button</label>
+                    <div class="searchbar">
+                        <div class="search">
+                           <input type="text" id="js-search-term" placeholder="What movie are you looking for?">
+                           <button type="submit" class="searchButton">
+                             <i class="fas fa-search"></i>
+                          </button>
+                        </div>
+                     </div>
+                </form>
+            </div>
+        </header>
 
-        <form id="js-form">
-            <label for="search-term">Enter in the name of a movie to search</label>
-            <input type="text" name="search-term" id="js-search-term" required>
-            <input type="submit" value="Go!">
-        </form>
+        <div id="results">
+            <div class="movie-info">
 
-        <div id='results'></div>
-
-        <p id="js-error-message" class="error-message"></p>
+            </div>
+            <div class="top-movies">
+                <h2 class="title">Top 50 Movies of all time:</h2>
+                <ol>
+                    <li><a href='#'>Stand By Me</a></li>
+                    <li><a href='#'>Raging Bull</a></li>
+                    <li><a href='#'>Casablanca</a></li>
+                    <li><a href='#'>Titanic</a></li>
+                    <li><a href='#'>Good Will Hunting</a></li>
+                    <li><a href='#'>Arrival</a></li>
+                    <li><a href='#'>Lost in Translation</a></li>
+                    <li><a href='#'>The Princess Bride</a></li>
+                    <li><a href='#'>The Prestige</a></li>
+                    <li><a href='#'>No Country For Old Men</a></li>
+                    <li><a href='#'>Shaun of the Dead</a></li>
+                    <li><a href='#'>Predator</a></li>
+                    <li><a href='#'>Indiana Jones and the Last Crusade</a></li>
+                    <li><a href='#'>Leon</a></li>
+                    <li><a href='#'>Rocky</a></li>
+                    <li><a href='#'>True Romance</a></li>
+                    <li><a href='#'>Some Like It Hot</a></li>
+                    <li><a href='#'>Spirited Away</a></li>
+                    <li><a href='#'>Oldboy</a></li>
+                    <li><a href='#'>Toy Story</a></li>
+                    <li><a href='#'>A Clockwork Orange</a></li>
+                    <li><a href='#'>Fargo</a></li>
+                    <li><a href='#'>Mulholland Drive</a></li>
+                    <li><a href='#'>Seven Samurai</a></li>
+                    <li><a href='#'>Rear Window</a></li>
+                    <li><a href='#'>Hot Fuzz</a></li>
+                    <li><a href='#'>The Lion King</a></li>
+                    <li><a href='#'>Ghostbusters</a></li>
+                    <li><a href='#'>Memento</a></li>
+                    <li><a href='#'>Star Wars</a></li>
+                    <li><a href='#'>L.A. Confidential</a></li>
+                    <li><a href='#'>Donnie Darko</a></li>
+                    <li><a href='#'>La La Land</a></li>
+                    <li><a href='#'>Forrest Gump</a></li>
+                    <li><a href='#'>American Beauty</a></li>
+                    <li><a href='#'>E.T.</a></li>
+                    <li><a href='#'>Inglourious Basterds</a></li>
+                    <li><a href='#'>Whiplash</a></li>
+                    <li><a href='#'>Reservoir Dogs</a></li>
+                    <li><a href='#'>Pan's Labyrinth</a></li>
+                    <li><a href='#'>Vertigo</a></li>
+                    <li><a href='#'>Psycho</a></li>
+                    <li><a href='#'>Once Upon A Time in the West</a></li>
+                    <li><a href='#'>It's A Wonderful Life</a></li>
+                    <li><a href='#'>Lawrence Of Arabia</a></li>
+                    <li><a href='#'>Trainspotting</a></li>
+                    <li><a href='#'>Interstellar</a></li>
+                    <li><a href='#'>Citizen Kane</a></li>
+                    <li><a href='#'>Drive</a></li>
+                    <li><a href='#'>Gladiator</a></li>
+                </ol>
+            </div>
+        </div>
     </div>
+    <script src="https://kit.fontawesome.com/b30b224264.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>

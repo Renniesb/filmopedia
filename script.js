@@ -1,8 +1,7 @@
 'use strict';
 
 
-
-const apiKey = 'AIzaSyAQd_NjHatlqWnGl1iwxQPhiUAe_euaccs';
+const apiKey = 'AIzaSyBhr6VWsoOfF4LJbYkZAP1cTgsLyKW42GU';
 const OMDBsearchURL = 'https://www.omdbapi.com/?apikey=2a2afcb2&t=';
 const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 
@@ -18,20 +17,40 @@ function displayMovieData(movie,trailers) {
     if(movie.Error){
         html = `<p>${movie.Error} Type in a different movie name</p>`
     } else {
-        html = `<h3>Movie Name: ${movie.Title}</h5><p>Plot: ${movie.Plot}</h3>
-        <p>Year: ${movie.Year}</p>\n
-        <h5>Trailers</h5>
-        <hr>
+        html = `
+          <section class="movie-header">
+            <div class="movie-title">
+                <h2 class="title">${movie.Title}</h2>
+            </div>
+            <div class="back" >
+                <button class="back-to-list"><i class="fas fa-chevron-left"></i>Back to top movies list</button>
+            </div >
+          </section>
+          <div class="movie-image">
+          <img src="${movie.Poster}" alt="${movie.Title} photo">
+          </div>
+          <p>Plot: ${movie.Plot}</p>
+          <p>Cast: ${movie.Actors}</p>
+          <p>Genre: ${movie.Genre}</p>
+          <p>Rated: ${movie.Rated}</p>
+          <p>Movie Score: ${movie.Ratings[0].Value}</p>
+          <p>Runtime: ${movie.Runtime}</p>
+          <p>Year: ${movie.Year}</p>
+          <h2>Trailers</h2>
+          <hr>
         `;
-        console.log(trailers);
         trailers.items.forEach( trailer =>{
-            html = html + `<h5>${trailer.snippet.title}</h5><iframe width="200" height="200" src="https://www.youtube.com/embed/${trailer.id.videoId}"></iframe>`
+            html = html + `
+            <figure>
+                <iframe height="300" style="width:100%;" src="https://www.youtube.com/embed/${trailer.id.videoId}"></iframe>
+                <figcaption>${trailer.snippet.title}</figcaption>
+            </figure>`
         }
             
         )
     }
 
-  $('#results').html(html);
+  $('.movie-info').html(html);
 
 }
 
@@ -76,8 +95,24 @@ function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
     const searchTerm = $('#js-search-term').val();
+    $('.movie-info').html("<div style='text-align: center'><h2>Loading...</h2></div>");
     getMovieData(searchTerm);
+    $(".top-movies").hide();
   });
+
+  $("ol").on("click","a", function(){
+    event.preventDefault();
+    const listTerm = $(this).text();
+    $('.movie-info').html("<div style='text-align: center'><h2>Loading...</h2></div>");
+    getMovieData(listTerm);
+    $(".top-movies").hide();
+ });
+ $(".movie-info").on("click","button", function(){
+    event.preventDefault();
+    $('.movie-info').html(" ");
+    $(".top-movies").show();
+ });
+
 }
 
 $(watchForm);
