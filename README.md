@@ -3,7 +3,7 @@ Application name: FilmoPedia
 Link to my Live app: https://renniesb.github.io/filmopedia/
 
 # Screenshots
-![1](https://imgur.com/a/HQu9dQv)
+![1](https://imgur.com/Ix7lQhe)
 ![2](https://photos.app.goo.gl/4nYoQ5dpVg53JQoc7)
 ![3](https://photos.app.goo.gl/dQaVeV1ju3PrNtjy8)
 ![4](https://photos.app.goo.gl/aWDRgTEJWLx4qwZ2A)
