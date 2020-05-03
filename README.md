@@ -3,10 +3,10 @@ Application name: FilmoPedia
 Link to my Live app: https://renniesb.github.io/filmopedia/
 
 # Screenshots
-![1](img/movie-list.png)
-![2](img/movie-info.png)
-![3](img/search-for-a-movie.gif)
-![4](img/click-on-a-movie.gif)
+![movie list](https://user-images.githubusercontent.com/7147957/80895712-d93f6080-8cb5-11ea-836c-d63818c37b0b.png)
+![movie search](https://user-images.githubusercontent.com/7147957/80895651-16572300-8cb5-11ea-85ea-8e2f96a9c641.png)
+![click-on-a-movie](https://user-images.githubusercontent.com/7147957/80895993-6a630700-8cb7-11ea-92ba-9acd36284b4f.gif)
+![search-for-a-movie](https://user-images.githubusercontent.com/7147957/80896052-4227d800-8cb8-11ea-8e43-dc02f875caf8.gif)
 
 
 
