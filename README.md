@@ -9,10 +9,10 @@ Link to my Live app: [https://renniesb.github.io/filmopedia/](https://renniesb.g
 
 # Walkthroughs
 
-###Click on a movie from the top 50 Movies list
+### Click on a movie from the top 50 Movies list
 ![click-on-a-movie](https://user-images.githubusercontent.com/7147957/80895993-6a630700-8cb7-11ea-92ba-9acd36284b4f.gif)
 
-###Search for a movie in the search bar
+### Search for a movie in the search bar
 ![search-for-a-movie](https://user-images.githubusercontent.com/7147957/80896052-4227d800-8cb8-11ea-8e43-dc02f875caf8.gif)
 
 
