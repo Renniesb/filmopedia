@@ -1,7 +1,6 @@
 ### Application name: FilmoPedia
 
-Link to the live app: [https://renniesb.github.io/filmopedia/](https://renniesb.github.io/filmopedia/){:target="_blank"}.
-
+Link to the live app: [https://renniesb.github.io/filmopedia/](https://renniesb.github.io/filmopedia/)
 # Screenshots
 ![movie list](https://user-images.githubusercontent.com/7147957/80895712-d93f6080-8cb5-11ea-836c-d63818c37b0b.png)
 
