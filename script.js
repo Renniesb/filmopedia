@@ -1,9 +1,7 @@
 'use strict';
 
+const AppData = {apiKey: 'AIzaSyBhr6VWsoOfF4LJbYkZAP1cTgsLyKW42GU',OMDBsearchURL:'https://www.omdbapi.com/?apikey=2a2afcb2&t=',YouTubeSearchURL:'https://www.googleapis.com/youtube/v3/search'};
 
-const apiKey = 'AIzaSyBhr6VWsoOfF4LJbYkZAP1cTgsLyKW42GU';
-const OMDBsearchURL = 'https://www.omdbapi.com/?apikey=2a2afcb2&t=';
-const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 
 
 function formatQueryParams(params) {
@@ -18,16 +16,16 @@ function displayMovieData(movie,trailers) {
         html = `<p>${movie.Error} Type in a different movie name</p>`
     } else {
         html = `
-          <section class="movie-header">
+          <header class="movie-header">
             <div class="movie-title">
                 <h2 class="title">${movie.Title}</h2>
             </div>
             <div class="back" >
                 <button class="back-to-list"><i class="fas fa-chevron-left"></i>Back to top movies list</button>
             </div >
-          </section>
+          </header>
           <div class="movie-image">
-          <img src="${movie.Poster}" alt="${movie.Title} photo">
+            <img src="${movie.Poster}" alt="${movie.Title} photo">
           </div>
           <p>Plot: ${movie.Plot}</p>
           <p>Cast: ${movie.Actors}</p>
@@ -56,19 +54,20 @@ function displayMovieData(movie,trailers) {
 
 
 function getMovieData(query) {
-
-  const params = {
-    key: apiKey,
+//Youtube parameters to be formatted into a Youtube api query link
+  const YouTubeParams = {
+    key: AppData.apiKey,
     q: query + ' movie trailer',
     part: 'snippet',
     maxResults: 2,
     type: 'video'
   };
   let queryString = '';
-  let OMDBurl = OMDBsearchURL + query;
-  let YoutubeSearchUrl = "";
+  let OMDBurl = AppData.OMDBsearchURL + query;
+  let YouTubeUrl = "";
   let movie = ''
 
+  //returns first api data to a variable and then calls calls the next api and then feeds both pieces of data to the display function
   fetch(OMDBurl)
     .then(response => {
       if (response.ok) {
@@ -78,10 +77,10 @@ function getMovieData(query) {
     })
     .then(responseJson => {
       movie = responseJson;
-      params.q = params.q + ` ${movie.Year}`;
-      queryString = formatQueryParams(params);
-      YoutubeSearchUrl = searchURL + '?' + queryString;
-      return fetch(YoutubeSearchUrl);      
+      YouTubeParams.q = YouTubeParams.q + ` ${movie.Year}`;
+      queryString = formatQueryParams(YouTubeParams);
+      YouTubeUrl = AppData.YouTubeSearchURL + '?' + queryString;
+      return fetch(YouTubeUrl);      
     })
     .then(data=> data.json())
     .then(trailers=>displayMovieData(movie,trailers) )
@@ -101,14 +100,14 @@ function watchForm() {
 
   $("ol").on("click","a", function(){
     event.preventDefault();
-    const listTerm = $(this).text();
+    const listSearchTerm = $(this).text();
     $('.movie-info').html("<div style='text-align: center'><h2>Loading...</h2></div>");
-    getMovieData(listTerm);
+    getMovieData(listSearchTerm);
     $(".top-movies").hide();
  });
  $(".movie-info").on("click","button", function(){
     event.preventDefault();
-    $('.movie-info').html(" ");
+    $('.movie-info').html("");
     $(".top-movies").show();
  });
 

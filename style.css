@@ -49,7 +49,7 @@ label {
 }
 
 
-header {
+.top-header {
     height: 350px;
 }
 
@@ -59,6 +59,10 @@ header {
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+iframe {
+    max-width: 620px;
 }
 
 img {
@@ -86,7 +90,7 @@ ol li, ol a {
     
 }
 
-#results {
+#movie-panel {
   font-family: 'Manrope', sans-serif;
   background: #273740;
   color: #cdd1d8;
@@ -145,9 +149,3 @@ figcaption {
     cursor: pointer;
     font-size: 20px;
   }
-
-@media screen and (min-width: 1000px) {
-    iframe {
-        max-width: 620px;
-    }
-}
