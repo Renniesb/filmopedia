@@ -1,6 +1,6 @@
 'use strict';
 
-const AppData = {apiKey: 'AIzaSyBhr6VWsoOfF4LJbYkZAP1cTgsLyKW42GU',OMDBsearchURL:'https://www.omdbapi.com/?apikey=2a2afcb2&t=',YouTubeSearchURL:'https://www.googleapis.com/youtube/v3/search'};
+const AppData = {apiKey: 'AIzaSyAQd_NjHatlqWnGl1iwxQPhiUAe_euaccs',OMDBsearchURL:'https://www.omdbapi.com/?apikey=2a2afcb2&t=',YouTubeSearchURL:'https://www.googleapis.com/youtube/v3/search'};
 
 
 
